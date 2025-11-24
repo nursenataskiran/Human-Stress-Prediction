@@ -5,13 +5,20 @@ from nltk.corpus import stopwords, wordnet
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-# NLTK setup
-nltk_data_path = r"C:\Users\nurse\OneDrive\Masaüstü\stress prediction\nltk_data"
+# Use project-level nltk_data directory
+project_path = Path(__file__).resolve().parent
+nltk_data_path = project_path / "nltk_data"
+
+# Create directory if missing
 os.makedirs(nltk_data_path, exist_ok=True)
+
+# Download NLTK resources into project folder
 nltk.download("stopwords", download_dir=nltk_data_path)
 nltk.download("punkt", download_dir=nltk_data_path)
 nltk.download("wordnet", download_dir=nltk_data_path)
-nltk.data.path.append(nltk_data_path)
+
+# Add path so NLTK knows where to look
+nltk.data.path.append(str(nltk_data_path))
 
 class TextCleaner:
     def __init__(self, language='english'):
