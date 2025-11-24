@@ -5,9 +5,9 @@ class FeatureExtractor:
         self.vectorizer = TfidfVectorizer(
             max_features=max_features,
             stop_words='english',
-            ngram_range=(1, 2),     # 👉 unigram + bigram
-            min_df=5, # en az 5 belgede geçen kelimeler alınsın
-            max_df=0.85 # en fazla %85 belgede geçen kelimeler atılsın
+            ngram_range=(1, 2),     
+            min_df=5, # Include only the words that appear in at least 5 documents.
+            max_df=0.85 # Remove the words that appear in more than 85% of the documents.
         )
 
     def fit_transform(self, X_train):
