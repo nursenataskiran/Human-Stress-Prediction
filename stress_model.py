@@ -17,5 +17,5 @@ class StressModel:
     def predict(self, X_vec):
         return self.model.predict(X_vec)
 
-    def predict_proba(self, X_vec):  # ⭐️ EKLENEN FONKSİYON
+    def predict_proba(self, X_vec): 
         return self.model.predict_proba(X_vec)
